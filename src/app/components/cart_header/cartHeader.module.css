@@ -1,0 +1,17 @@
+.row {
+  border-bottom: solid var(--separator) 0.1rem;
+}
+
+.content {
+  text-align: center;
+  min-width: 3rem;
+  padding: 2rem;
+}
+
+@media (max-width: 454px) {
+  .content {
+    width: 0.5rem;
+    padding: 0rem;
+    font-size: 0.8rem;
+  }
+}

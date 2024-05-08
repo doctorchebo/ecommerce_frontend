@@ -1,0 +1,13 @@
+.container {
+  padding: 15px;
+  background-color: var(--btn);
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 400;
+  color: var(--btn-txt);
+}
+
+.container:hover {
+  cursor: pointer;
+  background-color: var(--btn-hover);
+}

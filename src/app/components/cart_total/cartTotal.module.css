@@ -1,0 +1,14 @@
+.row {
+  padding: 2rem;
+}
+
+.text {
+  text-align: center;
+  padding: 2rem;
+}
+
+@media (max-width: 454px) {
+  .text {
+    padding: 0rem;
+  }
+}
