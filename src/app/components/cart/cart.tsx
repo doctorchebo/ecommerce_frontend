@@ -12,7 +12,7 @@ type Props = {};
 
 const Cart = (props: Props) => {
   const router = useRouter();
-  const { formattedMsg } = useMessage("Magui", "+59173559332");
+  const { formattedMsg } = useMessage("Magui", "+59172526442");
   const { cartItems, loading, error } = useAppSelector((state) => state.cart);
 
   const handleBuy = () => {};
