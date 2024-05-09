@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 
 const useScroll = () => {
-  const [lastPosition, setLastPosition] = useState(window.scrollY);
+  const [lastPosition, setLastPosition] = useState(0);
+  useEffect(() => {
+    setLastPosition(window.scrollY);
+  }, []);
+
   const [visible, setVisible] = useState(true);
   useEffect(() => {
     const handleScroll = () => {
