@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Card from "../card/card";
 import Loading from "../loading/loading";
+import Pagination from "../pagination/pagination";
 import Toast from "../toast/toast";
 import styles from "./products.module.css";
 
@@ -17,7 +18,7 @@ const Products = () => {
     dispatch(getProducts());
   }, []);
 
-  if (loading) return <Loading />;
+  if (loading || !products) return <Loading />;
   if (error) return <div>{error}</div>;
   return (
     <>
@@ -29,6 +30,7 @@ const Products = () => {
           <Card key={index} product={product} />
         ))}
       </div>
+      <Pagination />
     </>
   );
 };

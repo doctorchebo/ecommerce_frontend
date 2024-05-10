@@ -65,6 +65,10 @@
   margin-left: auto;
 }
 
+.imgWrapper {
+  margin-top: 2rem;
+}
+
 .imgWrapper:hover {
   transform: scale(1.1);
   transition: 0.3s;
@@ -106,6 +110,15 @@
     margin-top: 4.5rem;
     flex-direction: column;
     width: 100%;
+    padding: 0.5rem;
+  }
+  .imgContainer {
+    padding: 0.5rem;
+  }
+  .contentContainer {
+    padding: 0.5rem;
+  }
+  .priceContainer {
     padding: 0.5rem;
   }
 }

@@ -1,5 +1,7 @@
 import api from "@/app/api/api";
+import { Pagination } from "@/app/types/pagination";
 import axios from "axios";
+import { setPagination } from "../global/globalSlice";
 import { AppDispatch } from "../store";
 import { addProducts, setError, setLoading, setProduct } from "./productSlice";
 
@@ -14,7 +16,9 @@ export const getProducts = () => async (dispatch: AppDispatch) => {
   try {
     const response = await api.get("products/");
     if (response.status === 200) {
-      dispatch(addProducts(response.data));
+      dispatch(addProducts(response.data.results));
+      const { count, next, previous } = response.data;
+      dispatch(setPagination({ count, next, previous } as Pagination));
     }
   } catch (error) {
     handleError(error, dispatch);
