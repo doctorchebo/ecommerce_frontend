@@ -21,7 +21,7 @@ const useScroll = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [visible]);
+  }, [lastPosition]);
 
   return { visible };
 };
