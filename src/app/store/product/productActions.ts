@@ -11,21 +11,24 @@ const handleError = (error: unknown, dispatch: AppDispatch) => {
   }
 };
 
-export const getProducts = () => async (dispatch: AppDispatch) => {
-  dispatch(setLoading(true));
-  try {
-    const response = await api.get("products/");
-    if (response.status === 200) {
-      dispatch(addProducts(response.data.results));
-      const { count, next, previous } = response.data;
-      dispatch(setPagination({ count, next, previous } as Pagination));
+export const getProducts =
+  (page: number, pageSize = 10) =>
+  async (dispatch: AppDispatch) => {
+    dispatch(setLoading(true));
+    try {
+      const pagination = `?limit=${pageSize}&offset=${(page - 1) * 10}`;
+      const response = await api.get(`products/${pagination}`);
+      if (response.status === 200) {
+        dispatch(addProducts(response.data.results));
+        const { count, next, previous } = response.data;
+        dispatch(setPagination({ count, next, previous } as Pagination));
+      }
+    } catch (error) {
+      handleError(error, dispatch);
+    } finally {
+      dispatch(setLoading(false));
     }
-  } catch (error) {
-    handleError(error, dispatch);
-  } finally {
-    dispatch(setLoading(false));
-  }
-};
+  };
 
 export const getProduct = (id: string) => async (dispatch: AppDispatch) => {
   dispatch(setLoading(true));

@@ -13,12 +13,10 @@ const Pagination = () => {
   }, [pagination.page]);
 
   const handlePrevious = () => {
-    console.log("previous page");
     dispatch(goPage(pagination.previous!, false));
   };
 
   const handleNext = () => {
-    console.log("next page");
     dispatch(goPage(pagination.next!, true));
   };
 
